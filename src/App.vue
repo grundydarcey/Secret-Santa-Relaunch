@@ -1,32 +1,63 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <v-app>
+    <v-app-bar
+      app
+      class="red"
+      dark
+    >
+      <div class="flexxy">
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="http://cdn.onlinewebfonts.com/svg/img_550407.png"
+          transition="scale-transition"
+          width="40"
+        />
+          Secret Santa 2.0
+      </div>
+
+  
+      <div>
+      <v-btn
+        href="/wishlists"
+        text
+      >
+        <span class="mr-2">Manage Wishlists</span>
+      </v-btn>
+      <v-btn
+        href="/group"
+        text
+      >
+        <span class="mr-2">Group</span>
+      </v-btn>
+      </div>
     </div>
-    <router-view/>
-  </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  data: () => ({
+    //
+  }),
+};
+</script>
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style scoped>
+.flexxy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 </style>
