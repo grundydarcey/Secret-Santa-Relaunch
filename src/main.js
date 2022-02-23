@@ -4,11 +4,12 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import titleMixin from './mixins/titleMixin'
+import axios from 'axios';
+Vue.prototype.$http = axios;
 
 Vue.mixin(titleMixin)
 
 Vue.config.productionTip = false
-
 
 
 new Vue({
