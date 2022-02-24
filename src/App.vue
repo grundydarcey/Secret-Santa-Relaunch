@@ -16,9 +16,7 @@
           width="40"
         />
           Secret Santa 2.0
-      </div>
-
-  
+      </div>  
       <div>
       <v-btn
         href="/wishlists"
@@ -35,7 +33,6 @@
       </div>
     </div>
     </v-app-bar>
-
     <v-main>
       <router-view/>
     </v-main>
@@ -43,13 +40,34 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
-
   data: () => ({
-    //
+    // items : [
+    //   this.$members
+    // ]
   }),
+  provide() {
+    return {
+      $members: () => this.members
+    };
+  },
+  methods: {
+    async getData() {
+      try {
+        const response = await this.$http.get(
+          "http://localhost:8001/members"
+        );
+        this.members = response.data;
+        console.log(JSON.parse(JSON.stringify(this.members[1].price)))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  },
+  created() {
+    this.getData();
+  }
 };
 </script>
 
