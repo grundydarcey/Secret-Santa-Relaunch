@@ -29,7 +29,7 @@
       title: 'Group',
       inject: ['$members'],
       created() {
-          console.log(this.members[0].member_name)
+          //console.log(this.members[0].member_name)
       },  
       computed: {
         members() {
@@ -40,11 +40,8 @@
 </script>
 
 <style scoped>
-
-
 li {
     list-style-type: none;
-    /* display: inline; */
 }
 
 p {

@@ -45,15 +45,9 @@ const routes = [
       return import('../views/Join.vue')
     }
   },
-  // {
-  //   path: '/group/:id',
-  //   name: 'Specific User',
-  //   component: User
-  // }
+ 
 ]
-// const User = {
-//   template: '<div>User {{ $route.params.id }}</div>',
-// }
+
 
 const router = new VueRouter({
   mode: 'history',

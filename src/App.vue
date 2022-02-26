@@ -43,13 +43,11 @@
 export default {
   name: 'App',
   data: () => ({
-    // items : [
-    //   this.$members
-    // ]
   }),
   provide() {
     return {
-      $members: () => this.members
+      $members: () => this.members,
+      $lists: () => this.lists
     };
   },
   methods: {
@@ -59,7 +57,18 @@ export default {
           "http://localhost:8001/members"
         );
         this.members = response.data;
-        console.log(JSON.parse(JSON.stringify(this.members[1].price)))
+        // console.log(JSON.parse(JSON.stringify(this.members[1].price)))
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getLists() {
+      try {
+        const response = await this.$http.get(
+          "http://localhost:8001/lists"
+        );
+        this.lists = response.data;
+        console.log(JSON.parse(JSON.stringify(this.lists[1].link)), 'lists console log')
       } catch (error) {
         console.log(error)
       }
@@ -67,6 +76,7 @@ export default {
   },
   created() {
     this.getData();
+    this.getLists();
   }
 };
 </script>

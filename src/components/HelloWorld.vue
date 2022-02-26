@@ -53,29 +53,12 @@
         { activity: 'Your friend started their list.'},
         { activity: 'Your friend entered a couple\'s list'}
       ],
-      // members: [],
     }),
     provide() {
       return {
         members: this.members
       }
     },
-    // methods: {
-    //   async getData() {
-    //     try {
-    //       const response = await this.$http.get(
-    //         "http://localhost:8001/members"
-    //       );
-    //       this.members = response.data;
-    //       console.log(JSON.parse(JSON.stringify(this.members[1].price)))
-    //     } catch (error) {
-    //       console.log(error)
-    //     }
-    //   }
-    // },
-    // created() {
-    //   this.getData();
-    // } 
 }
 </script>
 
