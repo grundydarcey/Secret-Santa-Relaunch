@@ -45,6 +45,13 @@ const routes = [
       return import('../views/Join.vue')
     }
   },
+  {
+    path: '/member/:id',
+    name: 'Person',
+    component: function() {
+      return import('../views/Person.vue')
+    }
+  }
  
 ]
 
