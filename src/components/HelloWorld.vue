@@ -20,7 +20,7 @@
           >
             <v-list-item-icon>
               <v-icon
-                color="red darken"
+                color="brown darken4"
               >
                 mdi-account
               </v-icon>
@@ -33,6 +33,9 @@
       </v-list>
       </v-col>
     </v-row>
+    <div id="example">
+      <v-btn v-on:click="personalize">View your personalized group activity</v-btn>
+    </div>
     <v-row class="text-center">
       <v-btn class="text-center" href="/join">
         Join group now
@@ -54,17 +57,25 @@
         { activity: 'Your friend entered a couple\'s list'}
       ],
     }),
-    provide() {
-      return {
-        members: this.members
-      }
+    inject: ['$members'],
+    methods: {
+      personalize: function () {
+          const totalMembers = this.members.length;
+          const randomPerson = this.members[Math.floor(Math.random() * totalMembers)].member_name
+          console.log(randomPerson, 'random person')
+}
     },
+    computed: {
+      members() {
+        return this.$members();
+      }
+    }
 }
 </script>
 
 <style scoped>
 .tile {
-  background-color: rgb(255, 162, 162);
+  background-color: #e9c601;
   margin: 2px 0;
 }
 </style>
